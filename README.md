@@ -93,7 +93,7 @@ You are required to analyze the data to answer the given questions and compile a
 💡💼💡💼💡💼💡💼💡💼💡💼💡💼💡💼💡💼💡💡💼💡💼💡💼💡💼💡💼💡💼💡💼💡💼💡💼💡💡💼💡💼💡💼💡💼
 
 ## 1. Basic Data Exploration:
-#### 1.1. Table 'product_emissions'
+### 1.1. Table 'product_emissions'
 
 ```
 SELECT * 
@@ -114,7 +114,8 @@ LIMIT 10;
 | 10661-10-2014 | 85         | 28         | 11                | 2014 | Regular Straight 505® Jeans – Steel (Water                      | 0.7665    | 15                   | N/a (product with insufficient stage-level data) | N/a (product with insufficient stage-level data) | N/a (product with insufficient stage-level data) | 
 | 10661-10-2015 | 85         | 28         | 6                 | 2015 | Regular Straight 505® Jeans – Steel (Water                      | 0.7665    | 15                   | N/a (product with insufficient stage-level data) | N/a (product with insufficient stage-level data) | N/a (product with insufficient stage-level data) |         
 
-#### 1.2. Table 'industry_groups'
+***
+### 1.2. Table 'industry_groups'
 ```
 SELECT * 
 FROM industry_groups 
@@ -132,9 +133,10 @@ LIMIT 10;
 | 7  | Automobiles & Components                                               | 
 | 8  | Capital Goods                                                          | 
 | 9  | Chemicals                                                              | 
-| 10 | Commercial & Professional Services                                     |         
+| 10 | Commercial & Professional Services                                     |       
 
-#### 1.3 Table 'companies'
+***
+### 1.3 Table 'companies'
 ```
 SELECT * 
 FROM companies 
@@ -154,7 +156,8 @@ LIMIT 10;
 | 9  | "Fuji Xerox Co., Ltd."                         | 
 | 10 | "Gamesa Corporación Tecnológica, S.A."         |         
 
-#### 1.4. Table 'countries'
+***
+### 1.4. Table 'countries'
 ```
 SELECT * 
 FROM countries 
@@ -175,7 +178,7 @@ LIMIT 10;
 | 10 | Germany      |  
 
 ## 2. Summary of Data Analysis:
-#### 2.1. Top 5 average carbon footprint per year:
+### 2.1. Top 5 average carbon footprint per year:
 ```
 SELECT 
     year, 
@@ -194,8 +197,8 @@ LIMIT 5;
 | 2014 | 2457.5827            | 
 | 2013 | 2399.3190            |         
 
-
-#### 2.2.  Top 5 countries with total carbon footprint 
+***
+### 2.2.  Top 5 countries with total carbon footprint 
 ```
 SELECT 
     co.country_name, 
@@ -215,7 +218,8 @@ LIMIT 5;
 | USA          | 518381                 | 
 | South Korea  | 186965                 |         
 
-#### 2.3. Top 5 industries with the highest average carbon footprint per product
+***
+### 2.3. Top 5 industries with the highest average carbon footprint per product
 ```
 SELECT 
     ig.industry_group, 
@@ -233,10 +237,11 @@ LIMIT 5;
 | Automobiles & Components                         | 35373.4795                       | 
 | "Pharmaceuticals, Biotechnology & Life Sciences" | 24162.0000                       | 
 | Capital Goods                                    | 7391.7714                        | 
-| Materials                                        | 3208.8611                        |         
+| Materials                                        | 3208.8611                        |   
 
+***
 ## 3. Questions to Research:
-#### 3.1. Which products contribute the most to carbon emissions? 
+### 3.1. Which products contribute the most to carbon emissions? 
 
 ```
 SELECT 
