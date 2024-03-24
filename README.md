@@ -235,8 +235,8 @@ LIMIT 5;
 | Capital Goods                                    | 7391.7714                        | 
 | Materials                                        | 3208.8611                        |         
 
-## Questions to Research:
-#### 1. Which products contribute the most to carbon emissions? 
+## 3. Questions to Research:
+#### 3.1. Which products contribute the most to carbon emissions? 
 
 ```
 SELECT 
@@ -256,7 +256,7 @@ LIMIT 5;
 | Wind Turbine G90 2 Megawats  | 1251625                | 
 | TCDE                         | 198150                 |  
 
-#### 2. What are the industry groups of these products?
+#### 3.2. What are the industry groups of these products?
 ```
 SELECT 
     pe.product_name, 
@@ -282,7 +282,7 @@ WHERE pe.product_name IN (
 | TCDE                         | Materials                          |         
 
 
-#### 3. What are the industries with the highest contribution to carbon emissions?
+#### 3.3. What are the industries with the highest contribution to carbon emissions?
 ```
 SELECT 
     ig.industry_group,
@@ -302,7 +302,7 @@ LIMIT 5;
 | Technology Hardware & Equipment    | 363776                 | 
 | Capital Goods                      | 258712                 |         
 
-#### 4. What are the companies with the highest contribution to carbon emissions?
+#### 3.4. What are the companies with the highest contribution to carbon emissions?
 ```
 SELECT 
     c.company_name,
@@ -322,7 +322,7 @@ LIMIT 5;
 | "Mitsubishi Gas Chemical Company, Inc." | 212016                 | 
 | "Hino Motors, Ltd."                     | 191687                 |
 
-5. What are the countries with the highest contribution to carbon emissions?
+#### 3.5. What are the countries with the highest contribution to carbon emissions?
 ```
 SELECT 
     co.country_name,
@@ -342,10 +342,7 @@ LIMIT 5;
 | USA          | 518381                 | 
 | South Korea  | 186965                 |        
 
-#### 6. What is the trend of carbon footprints (PCFs) over the years?
- ## Header
-
-Describe what did you do...
+#### 3.6. What is the trend of carbon footprints (PCFs) over the years?
 ```
 SELECT 
     year,
@@ -363,7 +360,7 @@ ORDER BY year;
 | 2016 | 6891.5210            | 
 | 2017 | 4050.8452            |       
 
-#### 7. Which industry groups has demonstrated the most notable decrease in carbon footprints (PCFs) over time?
+#### 3.7. Which industry groups has demonstrated the most notable decrease in carbon footprints (PCFs) over time?
 ```
 SELECT 
     ig.industry_group,
@@ -382,4 +379,50 @@ LIMIT 5;
 | Automobiles & Components           | 191581                     | 
 | Materials                          | 167000                     | 
 | Capital Goods                      | 87589                      | 
-| "Food, Beverage & Tobacco"         | 26836                      |         
+| "Food, Beverage & Tobacco"         | 26836                      |   
+***
+# 4. Conclusions and Insights
+### 4.1. Top Contributors to Carbon Emissions:
+* The products contributing the most to carbon emissions are wind turbines, with models like G128 5 Megawatts and G132 5 Megawatts leading the list.
+* These products are mainly associated with the industry group "Electrical Equipment and Machinery."
+
+***
+### 
+### **4.2. Industries with Highest Carbon Emissions:**
+* The industry group "Electrical Equipment and Machinery" tops the list in terms of total carbon emissions, followed by "Automobiles & Components" and "Materials."
+* This indicates that industries involved in manufacturing heavy machinery and vehicles are significant contributors to carbon emissions.
+
+***
+
+### 4.3. Companies with High Carbon Footprints:
+* Companies like Gamesa Corporación Tecnológica, S.A. and Daimler AG have the highest contributions to carbon emissions.
+* This suggests that large manufacturing companies, particularly in the renewable energy and automotive sectors, have a substantial environmental impact.
+* Countries with High Carbon Footprints:
+* Spain and Germany are the countries with the highest contributions to carbon emissions, indicating a significant manufacturing presence in these nations.
+* This highlights the importance of considering national policies and regulations in addressing carbon emissions.
+***
+### 4.4. Impact of Renewable Energy Production:
+
+* Wind turbines, particularly models like G128 and G132, emerge as significant contributors to carbon emissions.
+* While wind energy is generally considered a cleaner alternative, the production process of wind turbines still involves substantial carbon emissions.
+* This highlights the importance of adopting more sustainable practices in renewable energy infrastructure development.
+***
+### 4.5. Heavy Machinery and Automobiles Influence:
+
+* The presence of heavy machinery and automobile manufacturing industries among the top contributors to carbon emissions underscores the environmental impact of industrial production.
+* Efforts to improve the efficiency and sustainability of manufacturing processes in these sectors could lead to substantial reductions in carbon footprints.
+***
+### 4.6. Need for Corporate Environmental Responsibility:
+
+* Companies such as Gamesa Corporación Tecnológica, S.A., Daimler AG, and Volkswagen AG have notable contributions to carbon emissions.
+* Encouraging corporate responsibility and incentivizing environmentally-friendly practices can play a crucial role in mitigating carbon emissions.
+***
+#### 4.7. Regional Disparities in Carbon Footprints:
+
+* The dominance of countries like Spain and Germany in carbon emissions highlights regional disparities in environmental impacts.
+* Implementing international cooperation and agreements to address carbon emissions can help distribute the burden more equitably across nations.
+***
+#### 4.8. Technological Innovations and Sustainability:
+
+* The decreasing carbon footprints observed in industries like electrical equipment and machinery may be attributed to technological innovations and sustainability initiatives.
+* Investing in research and development of cleaner technologies can further accelerate the transition towards a low-carbon economy.
