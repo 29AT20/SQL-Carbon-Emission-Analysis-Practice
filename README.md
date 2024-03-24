@@ -90,7 +90,7 @@ You are required to analyze the data to answer the given questions and compile a
 2. The following car models are leading in carbon emissions during production: Land Cruiser Prado, Mercedes-Benz GLA, Mercedes-Benz S-Class, and Mercedes-Benz SL
 3. One of the leading industries (7th place) is "Pharmaceuticals, Biotechnology & Life Sciences". Now we know what our health comes at.
    
-💡💼💡💼💡💼💡💼💡💼💡💼💡💼💡💼💡💼💡💡💼💡💼💡💼💡💼💡💼💡💼💡💼💡💼💡💼💡💡💼💡💼💡💼💡💼💡💼💡💼💡💼💡💼💡💼💡💡💼💡💼
+💡💼💡💼💡💼💡💼💡💼💡💼💡💼💡💼💡💼💡💡💼💡💼💡💼💡💼💡💼💡💼💡💼💡💼💡💼💡💡💼💡💼💡💼💡💼
 
 ## 1. Basic Data Exploration:
 #### 1.1. Table 'product_emissions'
