@@ -75,7 +75,23 @@ You are required to analyze the data to answer the given questions and compile a
 [⭐️optional] Illustrations such as photographs (e.g., cover photo at the beginning of the report), graphs (e.g., graphs generated using MS Excel or Google Sheets based on data), diagrams (database schema), and others.
 [⭐️optional] Any additional research and conclusions are welcome.
 
-💡💼💡💼💡💼💡💼💡💼💡💼💡💼💡💼💡💼💡💡💼💡💼💡💼💡💼💡💼💡💼💡💼💡💼💡💼💡💡💼💡💼💡💼💡💼💡💼💡💼💡💼💡💼💡💼💡💡💼💡💼💡💼💡💼💡💼💡💼💡💼💡💼💡💼💡
+# 3. Questions to research
+1. Which products contribute the most to carbon emissions?
+2. What are the industry groups of these products?
+3. What are the industries with the highest contribution to carbon emissions?
+4. What are the companies with the highest contribution to carbon emissions?
+5. What are the countries with the highest contribution to carbon emissions?
+6. What is the trend of carbon footprints (PCFs) over the years?
+7. Which industry groups has demonstrated the most notable decrease in carbon footprints (PCFs) over time?
+
+🚩 In addition to answering these questions, please list all insights, interesting facts, and patterns discovered in the data, such as:
+
+1. The products with the highest levels of carbon emissions are typically associated with heavy industry.
+2. The following car models are leading in carbon emissions during production: Land Cruiser Prado, Mercedes-Benz GLA, Mercedes-Benz S-Class, and Mercedes-Benz SL
+3. One of the leading industries (7th place) is "Pharmaceuticals, Biotechnology & Life Sciences". Now we know what our health comes at.
+   
+💡💼💡💼💡💼💡💼💡💼💡💼💡💼💡💼💡💼💡💡💼💡💼💡💼💡💼💡💼💡💼💡💼💡💼💡💼💡💡💼💡💼💡💼💡💼💡💼💡💼💡💼💡💼💡💼💡💡💼💡💼
+
 ## 1. Basic Data Exploration:
 #### 1.1. Table 'product_emissions'
 
@@ -198,4 +214,172 @@ LIMIT 5;
 | Japan        | 653237                 | 
 | USA          | 518381                 | 
 | South Korea  | 186965                 |         
-  
+
+#### 2.3. Top 5 industries with the highest average carbon footprint per product
+```
+SELECT 
+    ig.industry_group, 
+    AVG(pe.carbon_footprint_pcf) AS avg_carbon_footprint_per_product
+FROM product_emissions pe
+JOIN industry_groups ig ON pe.industry_group_id = ig.id
+GROUP BY ig.industry_group
+ORDER BY avg_carbon_footprint_per_product DESC
+LIMIT 5;
+```
+
+| industry_group                                   | avg_carbon_footprint_per_product | 
+| -----------------------------------------------: | -------------------------------: | 
+| Electrical Equipment and Machinery               | 891050.7273                      | 
+| Automobiles & Components                         | 35373.4795                       | 
+| "Pharmaceuticals, Biotechnology & Life Sciences" | 24162.0000                       | 
+| Capital Goods                                    | 7391.7714                        | 
+| Materials                                        | 3208.8611                        |         
+
+## Questions to Research:
+#### 1. Which products contribute the most to carbon emissions? 
+
+```
+SELECT 
+    product_name, 
+    SUM(carbon_footprint_pcf) AS total_carbon_footprint
+FROM product_emissions
+GROUP BY product_name
+ORDER BY total_carbon_footprint DESC
+LIMIT 5;
+```
+
+| product_name                 | total_carbon_footprint | 
+| ---------------------------: | ---------------------: | 
+| Wind Turbine G128 5 Megawats | 3718044                | 
+| Wind Turbine G132 5 Megawats | 3276187                | 
+| Wind Turbine G114 2 Megawats | 1532608                | 
+| Wind Turbine G90 2 Megawats  | 1251625                | 
+| TCDE                         | 198150                 |  
+
+#### 2. What are the industry groups of these products?
+```
+SELECT 
+    pe.product_name, 
+    ig.industry_group
+FROM product_emissions pe
+JOIN industry_groups ig ON pe.industry_group_id = ig.id
+WHERE pe.product_name IN (
+    'Wind Turbine G128 5 Megawats',
+    'Wind Turbine G132 5 Megawats',
+    'Wind Turbine G114 2 Megawats',
+    'Wind Turbine G90 2 Megawats',
+    'TCDE'
+);
+```
+
+| product_name                 | industry_group                     | 
+| ---------------------------: | ---------------------------------: | 
+| Wind Turbine G90 2 Megawats  | Electrical Equipment and Machinery | 
+| Wind Turbine G114 2 Megawats | Electrical Equipment and Machinery | 
+| Wind Turbine G128 5 Megawats | Electrical Equipment and Machinery | 
+| Wind Turbine G132 5 Megawats | Electrical Equipment and Machinery | 
+| TCDE                         | Materials                          | 
+| TCDE                         | Materials                          |         
+
+
+#### 3. What are the industries with the highest contribution to carbon emissions?
+```
+SELECT 
+    ig.industry_group,
+    SUM(pe.carbon_footprint_pcf) AS total_carbon_footprint
+FROM product_emissions pe
+JOIN industry_groups ig ON pe.industry_group_id = ig.id
+GROUP BY ig.industry_group
+ORDER BY total_carbon_footprint DESC
+LIMIT 5;
+```
+
+| industry_group                     | total_carbon_footprint | 
+| ---------------------------------: | ---------------------: | 
+| Electrical Equipment and Machinery | 9801558                | 
+| Automobiles & Components           | 2582264                | 
+| Materials                          | 577595                 | 
+| Technology Hardware & Equipment    | 363776                 | 
+| Capital Goods                      | 258712                 |         
+
+#### 4. What are the companies with the highest contribution to carbon emissions?
+```
+SELECT 
+    c.company_name,
+    SUM(pe.carbon_footprint_pcf) AS total_carbon_footprint
+FROM product_emissions pe
+JOIN companies c ON pe.company_id = c.id
+GROUP BY c.company_name
+ORDER BY total_carbon_footprint DESC
+LIMIT 5;
+```
+
+| company_name                            | total_carbon_footprint | 
+| --------------------------------------: | ---------------------: | 
+| "Gamesa Corporación Tecnológica, S.A."  | 9778464                | 
+| Daimler AG                              | 1594300                | 
+| Volkswagen AG                           | 655960                 | 
+| "Mitsubishi Gas Chemical Company, Inc." | 212016                 | 
+| "Hino Motors, Ltd."                     | 191687                 |
+
+5. What are the countries with the highest contribution to carbon emissions?
+```
+SELECT 
+    co.country_name,
+    SUM(pe.carbon_footprint_pcf) AS total_carbon_footprint
+FROM product_emissions pe
+JOIN countries co ON pe.country_id = co.id
+GROUP BY co.country_name
+ORDER BY total_carbon_footprint DESC
+LIMIT 5;
+```
+
+| country_name | total_carbon_footprint | 
+| -----------: | ---------------------: | 
+| Spain        | 9786130                | 
+| Germany      | 2251225                | 
+| Japan        | 653237                 | 
+| USA          | 518381                 | 
+| South Korea  | 186965                 |        
+
+#### 6. What is the trend of carbon footprints (PCFs) over the years?
+ ## Header
+
+Describe what did you do...
+```
+SELECT 
+    year,
+    AVG(carbon_footprint_pcf) AS avg_carbon_footprint
+FROM product_emissions
+GROUP BY year
+ORDER BY year;
+```
+
+| year | avg_carbon_footprint | 
+| ---: | -------------------: | 
+| 2013 | 2399.3190            | 
+| 2014 | 2457.5827            | 
+| 2015 | 43188.9044           | 
+| 2016 | 6891.5210            | 
+| 2017 | 4050.8452            |       
+
+#### 7. Which industry groups has demonstrated the most notable decrease in carbon footprints (PCFs) over time?
+```
+SELECT 
+    ig.industry_group,
+    MAX(pe.carbon_footprint_pcf) - MIN(pe.carbon_footprint_pcf) AS carbon_footprint_reduction
+FROM product_emissions pe
+JOIN industry_groups ig ON pe.industry_group_id = ig.id
+GROUP BY ig.industry_group
+ORDER BY carbon_footprint_reduction DESC
+LIMIT 5;
+
+```
+
+| industry_group                     | carbon_footprint_reduction | 
+| ---------------------------------: | -------------------------: | 
+| Electrical Equipment and Machinery | 3718044                    | 
+| Automobiles & Components           | 191581                     | 
+| Materials                          | 167000                     | 
+| Capital Goods                      | 87589                      | 
+| "Food, Beverage & Tobacco"         | 26836                      |         
