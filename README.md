@@ -1,4 +1,4 @@
-## 💼 Project: Carbon Emission Analysis
+# 💼 Project: Carbon Emission Analysis
 # 1.Introduction
 This report aims to analyze carbon emissions to examine the carbon footprint across various industries. We aim to identify sectors with the highest levels of emissions by analyzing them across countries and years, as well as to uncover trends.
 
@@ -6,19 +6,19 @@ Carbon emissions play a crucial role in the environment, accounting for over 75%
 
 Through this analysis, we hope to gain an understanding of the environmental impact of different industries and contribute to making informed decisions in sustainable development.
 
-### Data Source: Where Our Data Comes From
+## Data Source: Where Our Data Comes From
 Our dataset is compiled from publicly available data from nature.com and encompasses the product carbon footprints (PCF) for various companies. PCFs represent the greenhouse gas emissions associated with specific products, quantified in CO2 (carbon dioxide equivalent).
 
-### Data Structure
+## Data Structure
 The dataset consists of 4 tables containing information regarding carbon emissions generated during the production of goods.
 
 ![image](https://github.com/29AT20/SQL-Carbon-Emission-Analysis-Practice/assets/108121672/73331c48-8713-42aa-9d8e-7c846e5dfc2a)
 
-### Tables' columns description
+## Tables' columns description
 
 ***
 
-#### **1. Table 'product_emissions':**
+### **1. Table 'product_emissions':**
 **id:** Identifier for each product emission record.
 
 **company_id:** Identifier for the company associated with the product.
@@ -44,7 +44,7 @@ The dataset consists of 4 tables containing information regarding carbon emissio
  
 ***
 
-#### **2. Table 'industry_groups':**
+### **2. Table 'industry_groups':**
 **id:** Unique identifier for each industry group.
 
 **industry_group:** The name of the industry group, categorizing businesses within similar sectors based on their products or services offered.
@@ -52,13 +52,13 @@ The dataset consists of 4 tables containing information regarding carbon emissio
 
 ***
 
-#### **3. Table 'companies':**
+### **3. Table 'companies':**
 **id:** Unique identifier for each company.
 
 **company_name:** The name of the company, identifying the specific organization within the dataset.
  
 
-#### **4. Table 'countries':**
+### **4. Table 'countries':**
 **id:** Unique identifier for each country.
 
 **country_name:** The name of the country.
