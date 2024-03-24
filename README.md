@@ -255,7 +255,7 @@ LIMIT 5;
 | Wind Turbine G114 2 Megawats | 1532608                | 
 | Wind Turbine G90 2 Megawats  | 1251625                | 
 | TCDE                         | 198150                 |  
-
+***
 #### 3.2. What are the industry groups of these products?
 ```
 SELECT 
@@ -280,8 +280,7 @@ WHERE pe.product_name IN (
 | Wind Turbine G132 5 Megawats | Electrical Equipment and Machinery | 
 | TCDE                         | Materials                          | 
 | TCDE                         | Materials                          |         
-
-
+***
 #### 3.3. What are the industries with the highest contribution to carbon emissions?
 ```
 SELECT 
@@ -301,7 +300,7 @@ LIMIT 5;
 | Materials                          | 577595                 | 
 | Technology Hardware & Equipment    | 363776                 | 
 | Capital Goods                      | 258712                 |         
-
+***
 #### 3.4. What are the companies with the highest contribution to carbon emissions?
 ```
 SELECT 
@@ -321,7 +320,7 @@ LIMIT 5;
 | Volkswagen AG                           | 655960                 | 
 | "Mitsubishi Gas Chemical Company, Inc." | 212016                 | 
 | "Hino Motors, Ltd."                     | 191687                 |
-
+***
 #### 3.5. What are the countries with the highest contribution to carbon emissions?
 ```
 SELECT 
@@ -341,7 +340,7 @@ LIMIT 5;
 | Japan        | 653237                 | 
 | USA          | 518381                 | 
 | South Korea  | 186965                 |        
-
+***
 #### 3.6. What is the trend of carbon footprints (PCFs) over the years?
 ```
 SELECT 
@@ -359,7 +358,7 @@ ORDER BY year;
 | 2015 | 43188.9044           | 
 | 2016 | 6891.5210            | 
 | 2017 | 4050.8452            |       
-
+***
 #### 3.7. Which industry groups has demonstrated the most notable decrease in carbon footprints (PCFs) over time?
 ```
 SELECT 
