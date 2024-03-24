@@ -16,7 +16,7 @@ The dataset consists of 4 tables containing information regarding carbon emissio
 
 ***
 
-#### Table 'product_emissions'
+#### **1. Table 'product_emissions'**
 **id:** Identifier for each product emission record.
 
 **company_id:** Identifier for the company associated with the product.
@@ -42,7 +42,7 @@ The dataset consists of 4 tables containing information regarding carbon emissio
  
 ***
 
-#### Table 'industry_groups'
+#### **2. Table 'industry_groups'**
 **id:** Unique identifier for each industry group.
 
 **industry_group:** The name of the industry group, categorizing businesses within similar sectors based on their products or services offered.
@@ -50,13 +50,13 @@ The dataset consists of 4 tables containing information regarding carbon emissio
 
 ***
 
-#### Table 'companies'
+#### **3. Table 'companies'**
 **id:** Unique identifier for each company.
 
 **company_name:** The name of the company, identifying the specific organization within the dataset.
  
 
-#### **Table 'countries'**
+#### **4. Table 'countries'**
 **id:** Unique identifier for each country.
 
 **country_name:** The name of the country.
@@ -75,17 +75,127 @@ You are required to analyze the data to answer the given questions and compile a
 [⭐️optional] Illustrations such as photographs (e.g., cover photo at the beginning of the report), graphs (e.g., graphs generated using MS Excel or Google Sheets based on data), diagrams (database schema), and others.
 [⭐️optional] Any additional research and conclusions are welcome.
 
-#### Table 'product_emissions'
+💡💼💡💼💡💼💡💼💡💼💡💼💡💼💡💼💡💼💡💡💼💡💼💡💼💡💼💡💼💡💼💡💼💡💼💡💼💡💡💼💡💼💡💼💡💼💡💼💡💼💡💼💡💼💡💼💡💡💼💡💼💡💼💡💼💡💼💡💼💡💼💡💼💡💼💡
+## 1. Basic Data Exploration:
+#### 1.1. Table 'product_emissions'
+
 ```
 SELECT * 
 FROM product_emissions 
+LIMIT 10;
+```
+
+| id            | company_id | country_id | industry_group_id | year | product_name                                                    | weight_kg | carbon_footprint_pcf | upstream_percent_total_pcf                       | operations_percent_total_pcf                     | downstream_percent_total_pcf                     | 
+| ------------: | ---------: | ---------: | ----------------: | ---: | --------------------------------------------------------------: | --------: | -------------------: | -----------------------------------------------: | -----------------------------------------------: | -----------------------------------------------: | 
+| 10056-1-2014  | 82         | 28         | 2                 | 2014 | Frosted Flakes(R) Cereal                                        | 0.7485    | 2                    | 57.50                                            | 30.00                                            | 12.50                                            | 
+| 10056-1-2015  | 82         | 28         | 15                | 2015 | "Frosted Flakes, 23 oz, produced in Lancaster, PA (one carton)" | 0.7485    | 2                    | 57.50                                            | 30.00                                            | 12.50                                            | 
+| 10222-1-2013  | 83         | 28         | 8                 | 2013 | Office Chair                                                    | 20.68     | 73                   | 80.63                                            | 17.36                                            | 2.01                                             | 
+| 10261-1-2017  | 14         | 16         | 25                | 2017 | Multifunction Printers                                          | 110       | 1488                 | 30.65                                            | 5.51                                             | 63.84                                            | 
+| 10261-2-2017  | 14         | 16         | 25                | 2017 | Multifunction Printers                                          | 110       | 1818                 | 25.08                                            | 4.51                                             | 70.41                                            | 
+| 10261-3-2017  | 14         | 16         | 25                | 2017 | Multifunction Printers                                          | 110       | 2274                 | 20.05                                            | 3.61                                             | 76.34                                            | 
+| 10324-1-2016  | 15         | 16         | 19                | 2016 | KURALON  fiber                                                  | 1500      | 10000                | N/a (product with insufficient stage-level data) | N/a (product with insufficient stage-level data) | N/a (product with insufficient stage-level data) | 
+| 10418-1-2013  | 84         | 9          | 19                | 2013 | Portland Cement                                                 | 1000      | 1102                 | N/a (product with insufficient stage-level data) | N/a (product with insufficient stage-level data) | N/a (product with insufficient stage-level data) | 
+| 10661-10-2014 | 85         | 28         | 11                | 2014 | Regular Straight 505® Jeans – Steel (Water                      | 0.7665    | 15                   | N/a (product with insufficient stage-level data) | N/a (product with insufficient stage-level data) | N/a (product with insufficient stage-level data) | 
+| 10661-10-2015 | 85         | 28         | 6                 | 2015 | Regular Straight 505® Jeans – Steel (Water                      | 0.7665    | 15                   | N/a (product with insufficient stage-level data) | N/a (product with insufficient stage-level data) | N/a (product with insufficient stage-level data) |         
+
+#### 1.2. Table 'industry_groups'
+```
+SELECT * 
+FROM industry_groups 
+LIMIT 10;
+```
+
+| id | industry_group                                                         | 
+| -: | ---------------------------------------------------------------------: | 
+| 1  | "Consumer Durables, Household and Personal Products"                   | 
+| 2  | "Food, Beverage & Tobacco"                                             | 
+| 3  | "Forest and Paper Products - Forestry, Timber, Pulp and Paper, Rubber" | 
+| 4  | "Mining - Iron, Aluminum, Other Metals"                                | 
+| 5  | "Pharmaceuticals, Biotechnology & Life Sciences"                       | 
+| 6  | "Textiles, Apparel, Footwear and Luxury Goods"                         | 
+| 7  | Automobiles & Components                                               | 
+| 8  | Capital Goods                                                          | 
+| 9  | Chemicals                                                              | 
+| 10 | Commercial & Professional Services                                     |         
+
+#### 1.3 Table 'companies'
+```
+SELECT * 
+FROM companies 
+LIMIT 10;
+```
+
+| id | company_name                                   | 
+| -: | ---------------------------------------------: | 
+| 1  | "Autodesk, Inc."                               | 
+| 2  | "Casio Computer Co., Ltd."                     | 
+| 3  | "Cisco Systems, Inc."                          | 
+| 4  | "CNX Coal Resources, LP"                       | 
+| 5  | "Coca-Cola Enterprises, Inc."                  | 
+| 6  | "Compañía Española de Petróleos, S.A.U. CEPSA" | 
+| 7  | "Daikin Industries, Ltd."                      | 
+| 8  | "Elitegroup computer systems co., Ltd."        | 
+| 9  | "Fuji Xerox Co., Ltd."                         | 
+| 10 | "Gamesa Corporación Tecnológica, S.A."         |         
+
+#### 1.4. Table 'countries'
+```
+SELECT * 
+FROM countries 
+LIMIT 10;
+```
+
+| id | country_name | 
+| -: | -----------: | 
+| 1  | Australia    | 
+| 2  | Belgium      | 
+| 3  | Brazil       | 
+| 4  | Canada       | 
+| 5  | Chile        | 
+| 6  | China        | 
+| 7  | Colombia     | 
+| 8  | Finland      | 
+| 9  | France       | 
+| 10 | Germany      |  
+
+## 2. Summary of Data Analysis:
+#### 2.1. Top 5 average carbon footprint per year:
+```
+SELECT 
+    year, 
+    AVG(carbon_footprint_pcf) AS avg_carbon_footprint
+FROM product_emissions
+GROUP BY year
+ORDER BY avg_carbon_footprint DESC
 LIMIT 5;
 ```
 
-| id           | company_id | country_id | industry_group_id | year | product_name                                                    | weight_kg | carbon_footprint_pcf | upstream_percent_total_pcf | operations_percent_total_pcf | downstream_percent_total_pcf | 
-| -----------: | ---------: | ---------: | ----------------: | ---: | --------------------------------------------------------------: | --------: | -------------------: | -------------------------: | ---------------------------: | ---------------------------: | 
-| 10056-1-2014 | 82         | 28         | 2                 | 2014 | Frosted Flakes(R) Cereal                                        | 0.7485    | 2                    | 57.50                      | 30.00                        | 12.50                        | 
-| 10056-1-2015 | 82         | 28         | 15                | 2015 | "Frosted Flakes, 23 oz, produced in Lancaster, PA (one carton)" | 0.7485    | 2                    | 57.50                      | 30.00                        | 12.50                        | 
-| 10222-1-2013 | 83         | 28         | 8                 | 2013 | Office Chair                                                    | 20.68     | 73                   | 80.63                      | 17.36                        | 2.01                         | 
-| 10261-1-2017 | 14         | 16         | 25                | 2017 | Multifunction Printers                                          | 110       | 1488                 | 30.65                      | 5.51                         | 63.84                        | 
-| 10261-2-2017 | 14         | 16         | 25                | 2017 | Multifunction Printers                                          | 110       | 1818                 | 25.08                      | 4.51                         | 70.41                        |         
+| year | avg_carbon_footprint | 
+| ---: | -------------------: | 
+| 2015 | 43188.9044           | 
+| 2016 | 6891.5210            | 
+| 2017 | 4050.8452            | 
+| 2014 | 2457.5827            | 
+| 2013 | 2399.3190            |         
+
+
+#### 2.2.  Top 5 countries with total carbon footprint 
+```
+SELECT 
+    co.country_name, 
+    SUM(pe.carbon_footprint_pcf) AS total_carbon_footprint
+FROM product_emissions pe
+JOIN countries co ON pe.country_id = co.id
+GROUP BY co.country_name
+ORDER BY total_carbon_footprint DESC
+LIMIT 5;
+```
+
+| country_name | total_carbon_footprint | 
+| -----------: | ---------------------: | 
+| Spain        | 9786130                | 
+| Germany      | 2251225                | 
+| Japan        | 653237                 | 
+| USA          | 518381                 | 
+| South Korea  | 186965                 |         
+  
